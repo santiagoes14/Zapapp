@@ -1,0 +1,150 @@
+"""Adaptador VTEX (API pública de catálogo): cubre 8 de las 15 tiendas."""
+
+from __future__ import annotations
+
+from typing import Any
+from urllib.parse import urlparse
+
+import httpx
+
+from scraper.sizes import is_footwear_sneaker, matches_target_brand, matches_target_size
+
+HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+    ),
+    "Accept": "application/json, text/plain, */*",
+    "Accept-Language": "es-AR,es;q=0.9,en;q=0.8",
+}
+
+
+def _extract_sku_size(item: dict[str, Any]) -> str:
+    """Extrae el talle de un SKU VTEX desde variaciones comunes."""
+    for key in ("Talle", "talle", "Talla", "talla", "Tamaño", "Size", "Talle Arg", "Talle US"):
+        val = item.get(key)
+        if isinstance(val, list) and val:
+            return str(val[0]).strip()
+        if isinstance(val, str) and val.strip():
+            return val.strip()
+
+    # Fallback: buscar en el nombre del SKU (ej: "Zapatillas Nike ... - 47,5")
+    name = str(item.get("name") or item.get("nameComplete") or "")
+    return name
+
+
+def _extract_offer(item: dict[str, Any]) -> tuple[bool, float | None, float | None, int | None]:
+    """Devuelve (available, price, list_price, stock_qty) de los sellers VTEX."""
+    for seller in item.get("sellers") or []:
+        offer = seller.get("commertialOffer") or {}
+        qty = offer.get("AvailableQuantity")
+        is_avail = offer.get("IsAvailable")
+        price = offer.get("Price")
+        list_price = offer.get("ListPrice")
+        if (is_avail is True or (isinstance(qty, (int, float)) and qty > 0)) and price:
+            stock_int = int(qty) if isinstance(qty, (int, float)) and qty > 0 else None
+            return True, float(price), float(list_price) if list_price else None, stock_int
+    return False, None, None, None
+
+
+def scrape_vtex(store: dict[str, Any], max_pages: int = 8) -> list[dict[str, Any]]:
+    """
+    Consulta la API pública de búsqueda VTEX (`/api/catalog_system/pub/products/search`)
+    filtrando por marca y verificando disponibilidad real en el talle objetivo.
+    """
+    parsed = urlparse(store["url"])
+    base_url = f"{parsed.scheme}://{parsed.netloc}"
+    brands = store.get("brands") or ["Nike"]
+    expected_size = store.get("size")
+
+    seen_ids: set[str] = set()
+    results: list[dict[str, Any]] = []
+    page_size = 50
+
+    with httpx.Client(headers=HEADERS, timeout=25.0, follow_redirects=True) as client:
+        for brand in brands:
+            search_term = brand.strip()
+            for page in range(max_pages):
+                start = page * page_size
+                end = start + page_size - 1
+                endpoint = f"{base_url}/api/catalog_system/pub/products/search"
+                params = {
+                    "ft": f"zapatillas {search_term}",
+                    "_from": start,
+                    "_to": end,
+                }
+                try:
+                    resp = client.get(endpoint, params=params)
+                    if resp.status_code not in (200, 206):
+                        break
+                    products = resp.json()
+                except Exception:
+                    break
+
+                if not isinstance(products, list) or not products:
+                    break
+
+                for prod in products:
+                    prod_id = str(prod.get("productId") or prod.get("productReference") or "")
+                    if not prod_id or prod_id in seen_ids:
+                        continue
+
+                    name = str(prod.get("productName") or "").strip()
+                    prod_brand = str(prod.get("brand") or "").strip()
+                    categories = " ".join(prod.get("categories") or [])
+
+                    if not matches_target_brand(prod_brand, name, brands):
+                        continue
+                    if not is_footwear_sneaker(name, categories):
+                        continue
+
+                    matched_offer = None
+                    matched_size_label = None
+                    matched_image = None
+
+                    for item in prod.get("items") or []:
+                        raw_size = _extract_sku_size(item)
+                        if not matches_target_size(raw_size, expected_size):
+                            continue
+                        avail, price, list_price, stock_qty = _extract_offer(item)
+                        if not avail or price is None:
+                            continue
+
+                        images = item.get("images") or []
+                        img_url = images[0].get("imageUrl") if images else ""
+                        matched_offer = (price, list_price, stock_qty)
+                        matched_size_label = raw_size
+                        matched_image = img_url
+                        break
+
+                    if not matched_offer:
+                        continue
+
+                    price, list_price, stock_qty = matched_offer
+                    link = str(prod.get("link") or "").strip()
+                    if link and not link.startswith("http"):
+                        link = f"{base_url}/{link.lstrip('/')}"
+
+                    seen_ids.add(prod_id)
+                    results.append(
+                        {
+                            "id": f"{store['id']}::{prod_id}",
+                            "store_id": store["id"],
+                            "store_name": store["name"],
+                            "name": name,
+                            "brand": prod_brand or search_term,
+                            "price": price,
+                            "list_price": list_price if (list_price and list_price > price) else None,
+                            "currency": "ARS",
+                            "size_label": matched_size_label or expected_size or "47.5",
+                            "stock": stock_qty,
+                            "stock_text": f"{stock_qty} u. disponibles" if stock_qty else "En stock",
+                            "image": matched_image or "",
+                            "url": link or store["url"],
+                        }
+                    )
+
+                if len(products) < page_size:
+                    break
+
+    return results

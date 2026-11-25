@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zapatillas 47.5 AR / 14 US — Monitor Diario</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand-block">
+        <div class="brand-badge">47.5 AR · 14 US · 32 cm</div>
+        <h1>Monitor de Zapatillas</h1>
+        <p class="subtitle" id="updated-label">Cargando última actualización...</p>
+      </div>
+      <div class="topbar-actions">
+        <a id="sheet-link" class="btn-ghost" href="#" target="_blank" rel="noopener noreferrer">
+          Editar tiendas (Google Sheet) ↗
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="kpi-grid" aria-label="Resumen diario">
+      <div class="kpi-card">
+        <span class="kpi-label">Disponibles en tu talle</span>
+        <strong class="kpi-value" id="kpi-total">—</strong>
+      </div>
+      <div class="kpi-card kpi-highlight">
+        <span class="kpi-label">Nuevas de hoy</span>
+        <strong class="kpi-value" id="kpi-new">—</strong>
+      </div>
+      <div class="kpi-card">
+        <span class="kpi-label">Reingresos hoy</span>
+        <strong class="kpi-value" id="kpi-restock">—</strong>
+      </div>
+      <div class="kpi-card">
+        <span class="kpi-label">Tiendas monitoreadas</span>
+        <strong class="kpi-value" id="kpi-stores">—</strong>
+      </div>
+    </section>
+
+    <section id="new-banner" class="new-banner hidden">
+      <div>
+        <strong id="new-banner-title">Hay zapatillas nuevas hoy</strong>
+        <span id="new-banner-sub">Filtrá el catálogo para ver únicamente los ingresos y reingresos de la actualización de las 12:00 hs.</span>
+      </div>
+      <button id="btn-only-new" class="btn-primary" type="button">Ver solo nuevas de hoy</button>
+    </section>
+
+    <section class="controls" aria-label="Filtros del catálogo">
+      <div class="search-wrap">
+        <input id="search-input" type="search" placeholder="Buscar modelo (ej: Air Max, Vomero, Jordan, Dunk, 9060...)" autocomplete="off" />
+      </div>
+
+      <div class="controls-row">
+        <div class="chip-group" id="brand-chips" role="group" aria-label="Filtrar por marca">
+          <button class="chip active" data-brand="ALL" type="button">Todas las marcas</button>
+          <button class="chip" data-brand="Nike" type="button">Nike</button>
+          <button class="chip" data-brand="Jordan" type="button">Jordan</button>
+          <button class="chip" data-brand="Nike Sb" type="button">Nike SB</button>
+          <button class="chip" data-brand="New Balance" type="button">New Balance</button>
+        </div>
+
+        <div class="selects-wrap">
+          <label class="toggle-new">
+            <input type="checkbox" id="only-new-checkbox" />
+            <span>Solo nuevas / reingresos</span>
+          </label>
+
+          <select id="store-select" aria-label="Filtrar por tienda">
+            <option value="ALL">Todas las tiendas (15)</option>
+          </select>
+
+          <select id="sort-select" aria-label="Ordenar resultados">
+            <option value="new">Novedades primero</option>
+            <option value="price_asc">Menor precio</option>
+            <option value="price_desc">Mayor precio</option>
+            <option value="name_asc">Nombre A–Z</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <div class="results-bar">
+      <span id="results-count">Mostrando 0 modelos</span>
+      <button id="btn-reset" class="link-btn hidden" type="button">Limpiar filtros</button>
+    </div>
+
+    <section id="product-grid" class="product-grid" aria-live="polite"></section>
+
+    <section id="empty-state" class="empty-state hidden">
+      <h2 id="empty-title">No hay modelos que coincidan con esos filtros</h2>
+      <p id="empty-desc">Probá limpiar los filtros o ejecutar la actualización diaria para traer el catálogo en vivo.</p>
+    </section>
+
+    <details class="stores-panel">
+      <summary>Estado de las 15 tiendas monitoreadas</summary>
+      <div id="stores-table-wrap" class="stores-grid"></div>
+    </details>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      Actualización automática diaria a las 12:00 hs (ART) · Talle objetivo: 47.5 AR / 14 US / 32 cm
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
