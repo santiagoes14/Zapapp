@@ -1,15 +1,15 @@
 {
-  "updated_at": "2026-11-25T13:42:06.981967-03:00",
-  "updated_label": "25/11/2026 13:42 hs (ART)",
+  "updated_at": "2026-11-25T16:45:53.028079-03:00",
+  "updated_label": "25/11/2026 16:45 hs (ART)",
   "target_size_summary": "47.5 AR / 14 US / 32 cm",
   "google_sheet_url": "https://docs.google.com/spreadsheets/d/1N4dcWUyGMFaQoEc11MqkssHpMsRdoEbx-sAXgRcV7Es",
   "sync_source": "local_fallback",
   "summary": {
-    "total_products": 1,
-    "new_today": 0,
+    "total_products": 8,
+    "new_today": 8,
     "restocks_today": 0,
     "stores_total": 15,
-    "stores_ok": 15
+    "stores_ok": 14
   },
   "stores": [
     {
@@ -22,9 +22,9 @@
         "Nike"
       ],
       "count": 0,
-      "status": "ok",
-      "error": null,
-      "elapsed_sec": 0.2
+      "status": "error",
+      "error": "HTTP 403 al consultar API VTEX",
+      "elapsed_sec": 0.3
     },
     {
       "id": "newsport",
@@ -36,10 +36,10 @@
         "Nike",
         "Jordan"
       ],
-      "count": 0,
+      "count": 1,
       "status": "ok",
       "error": null,
-      "elapsed_sec": 0.4
+      "elapsed_sec": 10.6
     },
     {
       "id": "new-balance",
@@ -53,7 +53,7 @@
       "count": 1,
       "status": "ok",
       "error": null,
-      "elapsed_sec": 0.7
+      "elapsed_sec": 0.5
     },
     {
       "id": "fuencarral",
@@ -65,10 +65,10 @@
         "Nike",
         "Jordan"
       ],
-      "count": 0,
+      "count": 1,
       "status": "ok",
       "error": null,
-      "elapsed_sec": 0.4
+      "elapsed_sec": 7.7
     },
     {
       "id": "cero26",
@@ -80,10 +80,10 @@
         "Nike",
         "Jordan"
       ],
-      "count": 0,
+      "count": 2,
       "status": "ok",
       "error": null,
-      "elapsed_sec": 0.4
+      "elapsed_sec": 10.1
     },
     {
       "id": "sport78",
@@ -141,7 +141,7 @@
       "count": 0,
       "status": "ok",
       "error": null,
-      "elapsed_sec": 0.4
+      "elapsed_sec": 6.5
     },
     {
       "id": "sporting",
@@ -152,10 +152,10 @@
       "brands": [
         "Nike"
       ],
-      "count": 0,
+      "count": 1,
       "status": "ok",
       "error": null,
-      "elapsed_sec": 0.3
+      "elapsed_sec": 5.5
     },
     {
       "id": "solo-urbano",
@@ -183,7 +183,7 @@
       "count": 0,
       "status": "ok",
       "error": null,
-      "elapsed_sec": 0.4
+      "elapsed_sec": 0.3
     },
     {
       "id": "on-sports",
@@ -197,7 +197,7 @@
       "count": 0,
       "status": "ok",
       "error": null,
-      "elapsed_sec": 0.2
+      "elapsed_sec": 4.3
     },
     {
       "id": "drifters",
@@ -211,7 +211,7 @@
       "count": 0,
       "status": "ok",
       "error": null,
-      "elapsed_sec": 1.5
+      "elapsed_sec": 1.2
     },
     {
       "id": "grid",
@@ -222,10 +222,10 @@
       "brands": [
         "Nike"
       ],
-      "count": 0,
+      "count": 2,
       "status": "ok",
       "error": null,
-      "elapsed_sec": 0.4
+      "elapsed_sec": 7.5
     }
   ],
   "products": [
@@ -245,7 +245,140 @@
       "url": "https://www.newbalance.com.ar/hombre-zapatillas-N1T000045140031.html",
       "first_seen": "2026-11-25",
       "last_seen": "2026-11-25",
-      "badge": null,
+      "badge": "NUEVO_HOY",
+      "price_drop": false
+    },
+    {
+      "id": "newsport::75820",
+      "store_id": "newsport",
+      "store_name": "NewSport",
+      "name": "Zapatillas Nike V5 Rnr Hombre",
+      "brand": "NIKE",
+      "price": 209999.0,
+      "list_price": null,
+      "currency": "ARS",
+      "size_label": "47,5",
+      "stock": 1,
+      "stock_text": "1 u. disponibles",
+      "image": "https://newsport.vteximg.com.br/arquivos/ids/21603455/HJ5228004-A.jpg?v=639292233614770000",
+      "url": "https://www.newsport.com.ar/zapatillas-nike-v5-rnr-hombre-hj5228004/p",
+      "first_seen": "2026-11-25",
+      "last_seen": "2026-11-25",
+      "badge": "NUEVO_HOY",
+      "price_drop": false
+    },
+    {
+      "id": "sporting::72718",
+      "store_id": "sporting",
+      "store_name": "Sporting",
+      "name": "Zapatillas Urbanas Nike Air Max Excee de Hombre",
+      "brand": "NIKE",
+      "price": 229999.0,
+      "list_price": null,
+      "currency": "ARS",
+      "size_label": "47.5",
+      "stock": 10,
+      "stock_text": "10 u. disponibles",
+      "image": "https://sporting.vteximg.com.br/arquivos/ids/3390798/FZ5486101-000-1.jpg?v=639307077256430000",
+      "url": "https://www.sporting.com.ar/zapatillas-urbanas-nike-air-max-excee-de-hombre-fz5486101-000/p",
+      "first_seen": "2026-11-25",
+      "last_seen": "2026-11-25",
+      "badge": "NUEVO_HOY",
+      "price_drop": false
+    },
+    {
+      "id": "cero26::17392",
+      "store_id": "cero26",
+      "store_name": "Cero 26",
+      "name": "Zapatillas Nike Air Force 1 07 Hombre",
+      "brand": "NIKE",
+      "price": 249999.0,
+      "list_price": null,
+      "currency": "ARS",
+      "size_label": "47,5",
+      "stock": 10,
+      "stock_text": "10 u. disponibles",
+      "image": "https://newsport.vteximg.com.br/arquivos/ids/9703855/CW2288111-A.jpg?v=637661077512170000",
+      "url": "https://www.cero26.com.ar/zapatillas-hombre-air-force-1-07-cw2288111/p",
+      "first_seen": "2026-11-25",
+      "last_seen": "2026-11-25",
+      "badge": "NUEVO_HOY",
+      "price_drop": false
+    },
+    {
+      "id": "grid::56530",
+      "store_id": "grid",
+      "store_name": "Grid",
+      "name": "ZAPATILLAS NIKE SPORTSWEAR AIR FORCE 1 LOW UNISEX",
+      "brand": "Nike Sportswear",
+      "price": 289999.0,
+      "list_price": null,
+      "currency": "ARS",
+      "size_label": "47.5",
+      "stock": 1,
+      "stock_text": "1 u. disponibles",
+      "image": "https://essential.vteximg.com.br/arquivos/ids/3362811/328-1271_1.jpg.jpg?v=639283480096170000",
+      "url": "https://www.grid.com.ar/zapatillas-nike-sportswear-air-force-1-low-moda-unisex-3281271/p",
+      "first_seen": "2026-11-25",
+      "last_seen": "2026-11-25",
+      "badge": "NUEVO_HOY",
+      "price_drop": false
+    },
+    {
+      "id": "grid::57141",
+      "store_id": "grid",
+      "store_name": "Grid",
+      "name": "ZAPATILLAS NIKE SPORTSWEAR KOBE AIR FORCE 1 LOW HOMBRE",
+      "brand": "Nike Sportswear",
+      "price": 289999.0,
+      "list_price": null,
+      "currency": "ARS",
+      "size_label": "47.5",
+      "stock": 1,
+      "stock_text": "1 u. disponibles",
+      "image": "https://essential.vteximg.com.br/arquivos/ids/3378029/328-1330_1.jpg.jpg?v=639302859289800000",
+      "url": "https://www.grid.com.ar/zapatillas-nike-sportswear-kobe-air-force-1-low-moda-hombre-3281330/p",
+      "first_seen": "2026-11-25",
+      "last_seen": "2026-11-25",
+      "badge": "NUEVO_HOY",
+      "price_drop": false
+    },
+    {
+      "id": "fuencarral::56806",
+      "store_id": "fuencarral",
+      "store_name": "Fuencarral",
+      "name": "Zapatillas Nike Air More Uptempo Low Hombre",
+      "brand": "NIKE",
+      "price": 369999.0,
+      "list_price": null,
+      "currency": "ARS",
+      "size_label": "47,5",
+      "stock": 1,
+      "stock_text": "1 u. disponibles",
+      "image": "https://newsport.vteximg.com.br/arquivos/ids/20029505/FZ3055100-A.jpg?v=638758313219030000",
+      "url": "https://www.tiendafuencarral.com.ar/zapatillas-nike-air-more-uptempo-low-hombre-fz3055100/p",
+      "first_seen": "2026-11-25",
+      "last_seen": "2026-11-25",
+      "badge": "NUEVO_HOY",
+      "price_drop": false
+    },
+    {
+      "id": "cero26::56806",
+      "store_id": "cero26",
+      "store_name": "Cero 26",
+      "name": "Zapatillas Nike Air More Uptempo Low Hombre",
+      "brand": "NIKE",
+      "price": 369999.0,
+      "list_price": null,
+      "currency": "ARS",
+      "size_label": "47,5",
+      "stock": 1,
+      "stock_text": "1 u. disponibles",
+      "image": "https://newsport.vteximg.com.br/arquivos/ids/20029505/FZ3055100-A.jpg?v=638758313219030000",
+      "url": "https://www.cero26.com.ar/zapatillas-nike-air-more-uptempo-low-hombre-fz3055100/p",
+      "first_seen": "2026-11-25",
+      "last_seen": "2026-11-25",
+      "badge": "NUEVO_HOY",
       "price_drop": false
     }
   ]

@@ -5,5 +5,54 @@
     "last_price": 164849.0,
     "name": "1300 Waterproof 4E",
     "store_name": "New Balance"
+  },
+  "newsport::75820": {
+    "first_seen": "2026-11-25",
+    "last_seen": "2026-11-25",
+    "last_price": 209999.0,
+    "name": "Zapatillas Nike V5 Rnr Hombre",
+    "store_name": "NewSport"
+  },
+  "fuencarral::56806": {
+    "first_seen": "2026-11-25",
+    "last_seen": "2026-11-25",
+    "last_price": 369999.0,
+    "name": "Zapatillas Nike Air More Uptempo Low Hombre",
+    "store_name": "Fuencarral"
+  },
+  "cero26::17392": {
+    "first_seen": "2026-11-25",
+    "last_seen": "2026-11-25",
+    "last_price": 249999.0,
+    "name": "Zapatillas Nike Air Force 1 07 Hombre",
+    "store_name": "Cero 26"
+  },
+  "cero26::56806": {
+    "first_seen": "2026-11-25",
+    "last_seen": "2026-11-25",
+    "last_price": 369999.0,
+    "name": "Zapatillas Nike Air More Uptempo Low Hombre",
+    "store_name": "Cero 26"
+  },
+  "sporting::72718": {
+    "first_seen": "2026-11-25",
+    "last_seen": "2026-11-25",
+    "last_price": 229999.0,
+    "name": "Zapatillas Urbanas Nike Air Max Excee de Hombre",
+    "store_name": "Sporting"
+  },
+  "grid::56530": {
+    "first_seen": "2026-11-25",
+    "last_seen": "2026-11-25",
+    "last_price": 289999.0,
+    "name": "ZAPATILLAS NIKE SPORTSWEAR AIR FORCE 1 LOW UNISEX",
+    "store_name": "Grid"
+  },
+  "grid::57141": {
+    "first_seen": "2026-11-25",
+    "last_seen": "2026-11-25",
+    "last_price": 289999.0,
+    "name": "ZAPATILLAS NIKE SPORTSWEAR KOBE AIR FORCE 1 LOW HOMBRE",
+    "store_name": "Grid"
   }
 }
