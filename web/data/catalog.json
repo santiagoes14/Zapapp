@@ -1,0 +1,252 @@
+{
+  "updated_at": "2026-11-25T13:42:06.981967-03:00",
+  "updated_label": "25/11/2026 13:42 hs (ART)",
+  "target_size_summary": "47.5 AR / 14 US / 32 cm",
+  "google_sheet_url": "https://docs.google.com/spreadsheets/d/1N4dcWUyGMFaQoEc11MqkssHpMsRdoEbx-sAXgRcV7Es",
+  "sync_source": "local_fallback",
+  "summary": {
+    "total_products": 1,
+    "new_today": 0,
+    "restocks_today": 0,
+    "stores_total": 15,
+    "stores_ok": 15
+  },
+  "stores": [
+    {
+      "id": "nike-ar",
+      "name": "Nike Argentina",
+      "url": "https://www.nike.com.ar/hombre/calzado",
+      "platform": "vtex",
+      "size": "14",
+      "brands": [
+        "Nike"
+      ],
+      "count": 0,
+      "status": "ok",
+      "error": null,
+      "elapsed_sec": 0.2
+    },
+    {
+      "id": "newsport",
+      "name": "NewSport",
+      "url": "https://www.newsport.com.ar/newsport/calzado/",
+      "platform": "vtex",
+      "size": "47,5",
+      "brands": [
+        "Nike",
+        "Jordan"
+      ],
+      "count": 0,
+      "status": "ok",
+      "error": null,
+      "elapsed_sec": 0.4
+    },
+    {
+      "id": "new-balance",
+      "name": "New Balance",
+      "url": "https://www.newbalance.com.ar/hombre/zapatillas/ver-todo/",
+      "platform": "sfcc",
+      "size": "14",
+      "brands": [
+        "New Balance"
+      ],
+      "count": 1,
+      "status": "ok",
+      "error": null,
+      "elapsed_sec": 0.7
+    },
+    {
+      "id": "fuencarral",
+      "name": "Fuencarral",
+      "url": "https://www.tiendafuencarral.com.ar/tienda-fuencarral/calzado/",
+      "platform": "vtex",
+      "size": "47,5",
+      "brands": [
+        "Nike",
+        "Jordan"
+      ],
+      "count": 0,
+      "status": "ok",
+      "error": null,
+      "elapsed_sec": 0.4
+    },
+    {
+      "id": "cero26",
+      "name": "Cero 26",
+      "url": "https://www.cero26.com.ar/cero26/calzado/",
+      "platform": "vtex",
+      "size": "47,5",
+      "brands": [
+        "Nike",
+        "Jordan"
+      ],
+      "count": 0,
+      "status": "ok",
+      "error": null,
+      "elapsed_sec": 0.4
+    },
+    {
+      "id": "sport78",
+      "name": "Digital Sport 78",
+      "url": "https://www.digitalsport.com.ar/sport78/",
+      "platform": "digitalsport",
+      "size": "47.5",
+      "brands": [
+        "Nike"
+      ],
+      "count": 0,
+      "status": "ok",
+      "error": null,
+      "elapsed_sec": 0.2
+    },
+    {
+      "id": "fluid",
+      "name": "Fluid",
+      "url": "https://www.digitalsport.com.ar/fluid/",
+      "platform": "digitalsport",
+      "size": "47.5",
+      "brands": [
+        "Nike"
+      ],
+      "count": 0,
+      "status": "ok",
+      "error": null,
+      "elapsed_sec": 0.2
+    },
+    {
+      "id": "dionysos",
+      "name": "Dionysos",
+      "url": "https://www.digitalsport.com.ar/dionysos",
+      "platform": "digitalsport",
+      "size": "47.5",
+      "brands": [
+        "Nike"
+      ],
+      "count": 0,
+      "status": "ok",
+      "error": null,
+      "elapsed_sec": 0.2
+    },
+    {
+      "id": "dash",
+      "name": "Dash",
+      "url": "https://www.dashdeportes.com.ar/calzado/",
+      "platform": "vtex",
+      "size": "47.5",
+      "brands": [
+        "Nike",
+        "Nike sportswear",
+        "Jordan"
+      ],
+      "count": 0,
+      "status": "ok",
+      "error": null,
+      "elapsed_sec": 0.4
+    },
+    {
+      "id": "sporting",
+      "name": "Sporting",
+      "url": "https://www.sporting.com.ar/sporting/calzado/",
+      "platform": "vtex",
+      "size": "47.5",
+      "brands": [
+        "Nike"
+      ],
+      "count": 0,
+      "status": "ok",
+      "error": null,
+      "elapsed_sec": 0.3
+    },
+    {
+      "id": "solo-urbano",
+      "name": "Solo Urbano",
+      "url": "https://www.solourbano.com/hombre/calzado.html",
+      "platform": "magento",
+      "size": "47.5",
+      "brands": [
+        "Nike"
+      ],
+      "count": 0,
+      "status": "ok",
+      "error": null,
+      "elapsed_sec": 0.1
+    },
+    {
+      "id": "stock-center",
+      "name": "Stock Center",
+      "url": "https://www.stockcenter.com.ar/hombre/calzado",
+      "platform": "sfcc",
+      "size": "47.5",
+      "brands": [
+        "Nike"
+      ],
+      "count": 0,
+      "status": "ok",
+      "error": null,
+      "elapsed_sec": 0.4
+    },
+    {
+      "id": "on-sports",
+      "name": "On Sports",
+      "url": "https://www.onsports.com.ar/calzado",
+      "platform": "vtex",
+      "size": "47,5",
+      "brands": [
+        "Nike"
+      ],
+      "count": 0,
+      "status": "ok",
+      "error": null,
+      "elapsed_sec": 0.2
+    },
+    {
+      "id": "drifters",
+      "name": "Drifters",
+      "url": "https://drifters.com.ar/calzado/",
+      "platform": "tiendanube",
+      "size": "47.5(14us-32cm)",
+      "brands": [
+        "Nike Sb"
+      ],
+      "count": 0,
+      "status": "ok",
+      "error": null,
+      "elapsed_sec": 1.5
+    },
+    {
+      "id": "grid",
+      "name": "Grid",
+      "url": "https://www.grid.com.ar/calzado",
+      "platform": "vtex",
+      "size": "47.5",
+      "brands": [
+        "Nike"
+      ],
+      "count": 0,
+      "status": "ok",
+      "error": null,
+      "elapsed_sec": 0.4
+    }
+  ],
+  "products": [
+    {
+      "id": "new-balance::N1T000045140031",
+      "store_id": "new-balance",
+      "store_name": "New Balance",
+      "name": "1300 Waterproof 4E",
+      "brand": "New Balance",
+      "price": 164849.0,
+      "list_price": null,
+      "currency": "ARS",
+      "size_label": "14",
+      "stock": null,
+      "stock_text": "En stock",
+      "image": "https://www.newbalance.com.ar/on/demandware.static/-/Sites-siteCatalog_NBEU/default/dw921a7153/new_images/N1T000045/N1T000045080031/N1T000045080031-1.jpeg",
+      "url": "https://www.newbalance.com.ar/hombre-zapatillas-N1T000045140031.html",
+      "first_seen": "2026-11-25",
+      "last_seen": "2026-11-25",
+      "badge": null,
+      "price_drop": false
+    }
+  ]
+}
