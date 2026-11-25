@@ -12,7 +12,7 @@ from scraper.sizes import is_footwear_sneaker, matches_target_brand, matches_tar
 HEADERS = {
     "User-Agent": (
         "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-        "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+        "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
     ),
     "Accept": "application/json, text/plain, */*",
     "Accept-Language": "es-AR,es;q=0.9,en;q=0.8",
@@ -20,17 +20,25 @@ HEADERS = {
 
 
 def _extract_sku_size(item: dict[str, Any]) -> str:
-    """Extrae el talle de un SKU VTEX desde variaciones comunes."""
-    for key in ("Talle", "talle", "Talla", "talla", "Tamaño", "Size", "Talle Arg", "Talle US"):
+    """Extrae el talle de un SKU VTEX leyendo variations y claves comunes."""
+    # 1. Revisar los nombres de variación declarados por la tienda
+    for var_key in item.get("variations") or []:
+        if any(k in var_key.lower() for k in ("talle", "talla", "size", "nro", "numero", "tamaño")):
+            val = item.get(var_key)
+            if isinstance(val, list) and val:
+                return str(val[0]).strip()
+            if isinstance(val, str) and val.strip():
+                return val.strip()
+
+    # 2. Claves habituales en VTEX Argentina
+    for key in ("Talle", "talle", "Talla", "talla", "Tamaño", "Size", "Talle Arg", "Talle AR", "Talle US"):
         val = item.get(key)
         if isinstance(val, list) and val:
             return str(val[0]).strip()
         if isinstance(val, str) and val.strip():
             return val.strip()
 
-    # Fallback: buscar en el nombre del SKU (ej: "Zapatillas Nike ... - 47,5")
-    name = str(item.get("name") or item.get("nameComplete") or "")
-    return name
+    return str(item.get("name") or item.get("nameComplete") or "")
 
 
 def _extract_offer(item: dict[str, Any]) -> tuple[bool, float | None, float | None, int | None]:
@@ -47,11 +55,7 @@ def _extract_offer(item: dict[str, Any]) -> tuple[bool, float | None, float | No
     return False, None, None, None
 
 
-def scrape_vtex(store: dict[str, Any], max_pages: int = 8) -> list[dict[str, Any]]:
-    """
-    Consulta la API pública de búsqueda VTEX (`/api/catalog_system/pub/products/search`)
-    filtrando por marca y verificando disponibilidad real en el talle objetivo.
-    """
+def scrape_vtex(store: dict[str, Any], max_pages: int = 10) -> list[dict[str, Any]]:
     parsed = urlparse(store["url"])
     base_url = f"{parsed.scheme}://{parsed.netloc}"
     brands = store.get("brands") or ["Nike"]
@@ -60,6 +64,7 @@ def scrape_vtex(store: dict[str, Any], max_pages: int = 8) -> list[dict[str, Any
     seen_ids: set[str] = set()
     results: list[dict[str, Any]] = []
     page_size = 50
+    raw_total = 0
 
     with httpx.Client(headers=HEADERS, timeout=25.0, follow_redirects=True) as client:
         for brand in brands:
@@ -69,20 +74,21 @@ def scrape_vtex(store: dict[str, Any], max_pages: int = 8) -> list[dict[str, Any
                 end = start + page_size - 1
                 endpoint = f"{base_url}/api/catalog_system/pub/products/search"
                 params = {
-                    "ft": f"zapatillas {search_term}",
+                    "ft": search_term,
                     "_from": start,
                     "_to": end,
                 }
-                try:
-                    resp = client.get(endpoint, params=params)
-                    if resp.status_code not in (200, 206):
-                        break
-                    products = resp.json()
-                except Exception:
+                resp = client.get(endpoint, params=params)
+                if resp.status_code not in (200, 206):
+                    if page == 0 and raw_total == 0:
+                        raise RuntimeError(f"HTTP {resp.status_code} al consultar API VTEX")
                     break
 
+                products = resp.json()
                 if not isinstance(products, list) or not products:
                     break
+
+                raw_total += len(products)
 
                 for prod in products:
                     prod_id = str(prod.get("productId") or prod.get("productReference") or "")
@@ -148,3 +154,4 @@ def scrape_vtex(store: dict[str, Any], max_pages: int = 8) -> list[dict[str, Any
                     break
 
     return results
+
