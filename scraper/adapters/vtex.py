@@ -16,6 +16,13 @@ HEADERS = {
     ),
     "Accept": "application/json, text/plain, */*",
     "Accept-Language": "es-AR,es;q=0.9,en;q=0.8",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Sec-Ch-Ua": '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+    "Sec-Ch-Ua-Mobile": "?0",
+    "Sec-Ch-Ua-Platform": '"macOS"',
+    "Sec-Fetch-Dest": "empty",
+    "Sec-Fetch-Mode": "cors",
+    "Sec-Fetch-Site": "same-origin",
 }
 
 
@@ -66,7 +73,27 @@ def scrape_vtex(store: dict[str, Any], max_pages: int = 10) -> list[dict[str, An
     page_size = 50
     raw_total = 0
 
-    with httpx.Client(headers=HEADERS, timeout=25.0, follow_redirects=True) as client:
+    req_headers = {
+        **HEADERS,
+        "Referer": f"{base_url}/",
+        "Origin": base_url,
+    }
+
+    with httpx.Client(headers=req_headers, timeout=25.0, follow_redirects=True) as client:
+        # Calentar la sesión para obtener cookies iniciales del WAF/VTEX
+        try:
+            client.get(
+                base_url,
+                headers={
+                    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+                    "Sec-Fetch-Dest": "document",
+                    "Sec-Fetch-Mode": "navigate",
+                    "Sec-Fetch-Site": "none",
+                },
+            )
+        except httpx.HTTPError:
+            pass
+
         for brand in brands:
             search_term = brand.strip()
             for page in range(max_pages):
@@ -154,4 +181,3 @@ def scrape_vtex(store: dict[str, Any], max_pages: int = 10) -> list[dict[str, An
                     break
 
     return results
-
