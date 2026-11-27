@@ -1,15 +1,15 @@
 {
-  "updated_at": "2026-11-26T12:50:53.959774-03:00",
-  "updated_label": "26/11/2026 12:50 hs (ART)",
+  "updated_at": "2026-11-27T12:49:02.181814-03:00",
+  "updated_label": "27/11/2026 12:49 hs (ART)",
   "target_size_summary": "47.5 AR / 14 US / 32 cm",
   "google_sheet_url": "https://docs.google.com/spreadsheets/d/1N4dcWUyGMFaQoEc11MqkssHpMsRdoEbx-sAXgRcV7Es",
   "sync_source": "local_fallback",
   "summary": {
-    "total_products": 9,
-    "new_today": 1,
+    "total_products": 8,
+    "new_today": 0,
     "restocks_today": 0,
     "stores_total": 15,
-    "stores_ok": 14
+    "stores_ok": 13
   },
   "stores": [
     {
@@ -24,7 +24,7 @@
       "count": 0,
       "status": "error",
       "error": "HTTP 403 al consultar API VTEX",
-      "elapsed_sec": 0.1
+      "elapsed_sec": 0.2
     },
     {
       "id": "newsport",
@@ -39,7 +39,7 @@
       "count": 1,
       "status": "ok",
       "error": null,
-      "elapsed_sec": 16.3
+      "elapsed_sec": 5.6
     },
     {
       "id": "new-balance",
@@ -53,7 +53,7 @@
       "count": 1,
       "status": "ok",
       "error": null,
-      "elapsed_sec": 0.6
+      "elapsed_sec": 0.5
     },
     {
       "id": "fuencarral",
@@ -68,7 +68,7 @@
       "count": 2,
       "status": "ok",
       "error": null,
-      "elapsed_sec": 15.5
+      "elapsed_sec": 7.7
     },
     {
       "id": "cero26",
@@ -83,7 +83,7 @@
       "count": 2,
       "status": "ok",
       "error": null,
-      "elapsed_sec": 22.3
+      "elapsed_sec": 9.7
     },
     {
       "id": "sport78",
@@ -97,7 +97,7 @@
       "count": 0,
       "status": "ok",
       "error": null,
-      "elapsed_sec": 0.7
+      "elapsed_sec": 16.3
     },
     {
       "id": "fluid",
@@ -111,7 +111,7 @@
       "count": 0,
       "status": "ok",
       "error": null,
-      "elapsed_sec": 0.6
+      "elapsed_sec": 1.3
     },
     {
       "id": "dionysos",
@@ -125,7 +125,7 @@
       "count": 0,
       "status": "ok",
       "error": null,
-      "elapsed_sec": 0.5
+      "elapsed_sec": 0.4
     },
     {
       "id": "dash",
@@ -139,9 +139,9 @@
         "Jordan"
       ],
       "count": 0,
-      "status": "ok",
-      "error": null,
-      "elapsed_sec": 9.8
+      "status": "error",
+      "error": "HTTP 500 al consultar API VTEX",
+      "elapsed_sec": 2.3
     },
     {
       "id": "sporting",
@@ -155,7 +155,7 @@
       "count": 1,
       "status": "ok",
       "error": null,
-      "elapsed_sec": 6.8
+      "elapsed_sec": 3.1
     },
     {
       "id": "solo-urbano",
@@ -169,7 +169,7 @@
       "count": 0,
       "status": "ok",
       "error": null,
-      "elapsed_sec": 0.2
+      "elapsed_sec": 0.0
     },
     {
       "id": "stock-center",
@@ -183,7 +183,7 @@
       "count": 0,
       "status": "ok",
       "error": null,
-      "elapsed_sec": 0.3
+      "elapsed_sec": 0.1
     },
     {
       "id": "on-sports",
@@ -197,7 +197,7 @@
       "count": 0,
       "status": "ok",
       "error": null,
-      "elapsed_sec": 7.0
+      "elapsed_sec": 5.9
     },
     {
       "id": "drifters",
@@ -211,7 +211,7 @@
       "count": 0,
       "status": "ok",
       "error": null,
-      "elapsed_sec": 1.3
+      "elapsed_sec": 1.2
     },
     {
       "id": "grid",
@@ -222,32 +222,13 @@
       "brands": [
         "Nike"
       ],
-      "count": 2,
+      "count": 1,
       "status": "ok",
       "error": null,
-      "elapsed_sec": 13.5
+      "elapsed_sec": 6.3
     }
   ],
   "products": [
-    {
-      "id": "fuencarral::17392",
-      "store_id": "fuencarral",
-      "store_name": "Fuencarral",
-      "name": "Zapatillas Nike Air Force 1 07 Hombre",
-      "brand": "NIKE",
-      "price": 249999.0,
-      "list_price": null,
-      "currency": "ARS",
-      "size_label": "47,5",
-      "stock": 10,
-      "stock_text": "10 u. disponibles",
-      "image": "https://newsport.vteximg.com.br/arquivos/ids/9703855/CW2288111-A.jpg?v=637661077512170000",
-      "url": "https://www.tiendafuencarral.com.ar/zapatillas-hombre-air-force-1-07-cw2288111/p",
-      "first_seen": "2026-11-26",
-      "last_seen": "2026-11-26",
-      "badge": "NUEVO_HOY",
-      "price_drop": false
-    },
     {
       "id": "new-balance::N1T000045140031",
       "store_id": "new-balance",
@@ -263,7 +244,7 @@
       "image": "https://www.newbalance.com.ar/on/demandware.static/-/Sites-siteCatalog_NBEU/default/dw921a7153/new_images/N1T000045/N1T000045080031/N1T000045080031-1.jpeg",
       "url": "https://www.newbalance.com.ar/hombre-zapatillas-N1T000045140031.html",
       "first_seen": "2026-11-25",
-      "last_seen": "2026-11-26",
+      "last_seen": "2026-11-27",
       "badge": null,
       "price_drop": false
     },
@@ -282,7 +263,7 @@
       "image": "https://newsport.vteximg.com.br/arquivos/ids/21603455/HJ5228004-A.jpg?v=639292233614770000",
       "url": "https://www.newsport.com.ar/zapatillas-nike-v5-rnr-hombre-hj5228004/p",
       "first_seen": "2026-11-25",
-      "last_seen": "2026-11-26",
+      "last_seen": "2026-11-27",
       "badge": null,
       "price_drop": false
     },
@@ -301,7 +282,26 @@
       "image": "https://sporting.vteximg.com.br/arquivos/ids/3390798/FZ5486101-000-1.jpg?v=639307077256430000",
       "url": "https://www.sporting.com.ar/zapatillas-urbanas-nike-air-max-excee-de-hombre-fz5486101-000/p",
       "first_seen": "2026-11-25",
-      "last_seen": "2026-11-26",
+      "last_seen": "2026-11-27",
+      "badge": null,
+      "price_drop": false
+    },
+    {
+      "id": "fuencarral::17392",
+      "store_id": "fuencarral",
+      "store_name": "Fuencarral",
+      "name": "Zapatillas Nike Air Force 1 07 Hombre",
+      "brand": "NIKE",
+      "price": 249999.0,
+      "list_price": null,
+      "currency": "ARS",
+      "size_label": "47,5",
+      "stock": 10,
+      "stock_text": "10 u. disponibles",
+      "image": "https://newsport.vteximg.com.br/arquivos/ids/9703855/CW2288111-A.jpg?v=637661077512170000",
+      "url": "https://www.tiendafuencarral.com.ar/zapatillas-hombre-air-force-1-07-cw2288111/p",
+      "first_seen": "2026-11-26",
+      "last_seen": "2026-11-27",
       "badge": null,
       "price_drop": false
     },
@@ -320,7 +320,7 @@
       "image": "https://newsport.vteximg.com.br/arquivos/ids/9703855/CW2288111-A.jpg?v=637661077512170000",
       "url": "https://www.cero26.com.ar/zapatillas-hombre-air-force-1-07-cw2288111/p",
       "first_seen": "2026-11-25",
-      "last_seen": "2026-11-26",
+      "last_seen": "2026-11-27",
       "badge": null,
       "price_drop": false
     },
@@ -339,26 +339,7 @@
       "image": "https://essential.vteximg.com.br/arquivos/ids/3362811/328-1271_1.jpg.jpg?v=639283480096170000",
       "url": "https://www.grid.com.ar/zapatillas-nike-sportswear-air-force-1-low-moda-unisex-3281271/p",
       "first_seen": "2026-11-25",
-      "last_seen": "2026-11-26",
-      "badge": null,
-      "price_drop": false
-    },
-    {
-      "id": "grid::57141",
-      "store_id": "grid",
-      "store_name": "Grid",
-      "name": "ZAPATILLAS NIKE SPORTSWEAR KOBE AIR FORCE 1 LOW HOMBRE",
-      "brand": "Nike Sportswear",
-      "price": 289999.0,
-      "list_price": null,
-      "currency": "ARS",
-      "size_label": "47.5",
-      "stock": 1,
-      "stock_text": "1 u. disponibles",
-      "image": "https://essential.vteximg.com.br/arquivos/ids/3378029/328-1330_1.jpg.jpg?v=639302859289800000",
-      "url": "https://www.grid.com.ar/zapatillas-nike-sportswear-kobe-air-force-1-low-moda-hombre-3281330/p",
-      "first_seen": "2026-11-25",
-      "last_seen": "2026-11-26",
+      "last_seen": "2026-11-27",
       "badge": null,
       "price_drop": false
     },
@@ -377,7 +358,7 @@
       "image": "https://newsport.vteximg.com.br/arquivos/ids/20029505/FZ3055100-A.jpg?v=638758313219030000",
       "url": "https://www.tiendafuencarral.com.ar/zapatillas-nike-air-more-uptempo-low-hombre-fz3055100/p",
       "first_seen": "2026-11-25",
-      "last_seen": "2026-11-26",
+      "last_seen": "2026-11-27",
       "badge": null,
       "price_drop": false
     },
@@ -396,7 +377,7 @@
       "image": "https://newsport.vteximg.com.br/arquivos/ids/20029505/FZ3055100-A.jpg?v=638758313219030000",
       "url": "https://www.cero26.com.ar/zapatillas-nike-air-more-uptempo-low-hombre-fz3055100/p",
       "first_seen": "2026-11-25",
-      "last_seen": "2026-11-26",
+      "last_seen": "2026-11-27",
       "badge": null,
       "price_drop": false
     }
